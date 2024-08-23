@@ -40,7 +40,7 @@ function SocialLinks() {
                 <FontAwesomeIcon icon={faLinkedin} size="lg" />
             </a>
             <a
-                href="https://github.com/your-username"
+                href="https://github.com/gunaprofile/f1-insights-dashboard-guna/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
