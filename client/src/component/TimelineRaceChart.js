@@ -6,7 +6,7 @@ import Select from 'react-select';
 import ClipLoader from 'react-spinners/ClipLoader';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { useSeasons } from './common/useSeasons';
-import { customStyles as defaultCustomStyles } from '../constants';
+import { customStyles as defaultCustomStyles, apiBaseUrl } from '../constants';
 
 // Initialize the timeline module
 timeline(Highcharts);
@@ -34,7 +34,7 @@ const TimelineRaceChart = () => {
 
   const fetchRaces = useCallback(async (season) => {
     try {
-      const response = await fetch(`http://localhost/api/races/${season}`);
+      const response = await fetch(`${apiBaseUrl}races/${season}`);
       const data = await response.json();
       const raceOptions = data.map((race) => ({
         value: race.round,
@@ -56,8 +56,8 @@ const TimelineRaceChart = () => {
       setNoDataWarning(false);
 
       const [raceResponse, driverResponse] = await Promise.all([
-        fetch(`http://localhost/api/race/${season}/${round}`),
-        fetch(`http://localhost/api/drivers/${season}`),
+        fetch(`${apiBaseUrl}race/${season}/${round}`),
+        fetch(`${apiBaseUrl}drivers/${season}`),
       ]);
 
       const raceData = await raceResponse.json();

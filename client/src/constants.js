@@ -1,3 +1,5 @@
+export const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost/api/';
+
 export const NAV_LINKS = [
     { path: "/", label: "Dashboard" },
     { path: "/analysis", label: "Event Analysis" },
@@ -5,10 +7,10 @@ export const NAV_LINKS = [
 ];
 
 export const WIDGET_API_URLS = [
-    "http://localhost/api/races-completed",
-    "http://localhost/api/aston-martin-standings",
-    "http://localhost/api/current-status",
-    "http://localhost/api/countdown",
+    `${apiBaseUrl}races-completed`,
+    `${apiBaseUrl}aston-martin-standings`,
+    `${apiBaseUrl}current-status`,
+    `${apiBaseUrl}countdown`,
 ];
 
 export const statisticsOptions = [

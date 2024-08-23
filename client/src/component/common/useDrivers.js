@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { apiBaseUrl } from "../../constants";
 
 export const useDrivers = (selectedSeason) => {
     const [drivers, setDrivers] = useState([]);
@@ -13,7 +14,7 @@ export const useDrivers = (selectedSeason) => {
             setErrorDrivers(null);
 
             try {
-                const response = await fetch(`http://localhost/api/drivers/${selectedSeason.value}`);
+                const response = await fetch(`${apiBaseUrl}drivers/${selectedSeason.value}`);
                 if (!response.ok) throw new Error("Failed to fetch drivers");
                 const result = await response.json();
 

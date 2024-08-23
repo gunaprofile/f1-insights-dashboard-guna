@@ -5,7 +5,7 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 import { useSeasons } from './common/useSeasons';
 import { useDrivers } from './common/useDrivers';
-import { statisticsOptions as defaultStatisticsOptions, customStyles as defaultCustomStyles } from '../constants';
+import { statisticsOptions as defaultStatisticsOptions, customStyles as defaultCustomStyles, apiBaseUrl } from '../constants';
 
 const DriverComparisonChart = () => {
   const [selectedSeason, setSelectedSeason] = useState(null);
@@ -68,7 +68,7 @@ const DriverComparisonChart = () => {
 
     setLoadingChart(true);
     try {
-      const response = await fetch('http://localhost/api/driver-comparison', {
+      const response = await fetch(`${apiBaseUrl}driver-comparison`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

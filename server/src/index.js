@@ -270,3 +270,7 @@ app.get('/api/drivers/:season', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch drivers' });
     }
 });
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

@@ -17,6 +17,9 @@ services:
       - ./client/src:/app/src
     stdin_open: true
     tty: true
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_BASE_URL=http://localhost/api/
     depends_on: 
       - server
     deploy:

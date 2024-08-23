@@ -8,6 +8,7 @@ import React, {
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { apiBaseUrl } from "../constants";
 
 const startYear = 1958;
 const endYear = 2023;
@@ -23,7 +24,7 @@ const BarRaceChart = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost/api/constructor-points-progress"
+        `${apiBaseUrl}constructor-points-progress`
       );
       const data = await response.json();
       setDataset(data);
